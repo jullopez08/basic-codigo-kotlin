@@ -42,7 +42,7 @@ val myPair = "McLauren" onto "Lucas"
 //al usar el methods get permite entrar a un
 // elemento y buscan entre del rango para obtener un sub objeto
 operator fun String.get(range: IntRange) = substring(range)
-val str = "Always forgive your enemies; nothing annoys them so much."
+const val str = "Always forgive your enemies; nothing annoys them so much."
 // el methods vararg permite pasar muchos arguments separados por comas
 // y el in permite acortar palabras
 fun printAll(vararg messages: String){
@@ -59,7 +59,7 @@ fun log(vararg entries: String){
 // con nulos en ktn sirve cuando estamos interaction con code de java
 // externa
 fun describeString(maybeString: String?): String {
-    return if (maybeString != null && maybeString.length > 0) {
+    return if (!maybeString.isNullOrEmpty()) {
         " String of length %{maybeString.length}"
     }else{
         "Empty or null string"
@@ -69,7 +69,6 @@ val prueba = describeString("hola")
 val prueba2 = describeString(null)
 val prueba3 = describeString("")
 // clases
-class  Customer
 // VAL ==> CONST VAR ==>LET
 class Contact(val id: Int, val name: String, var email: String){
     //se pueden agregar methods que serían fun
@@ -89,7 +88,7 @@ fun main() {
     printMessage("Hello")
     //se puede reasignar un valor después de declarer por defecto
     // en cuanto sea del mismo tipo
-    printMessageWithPrefix("Hello", )
+    printMessageWithPrefix("Hello" )
     println(multiply(1, 2))
     println(sun(5,5))
     println(2 time "bye")
